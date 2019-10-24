@@ -1,5 +1,6 @@
 const Sequelize = require("sequelize");
 const db = require("../db");
+const User = require("../user/model");
 
 const Ad = db.define("ad", {
   price: {
@@ -14,11 +15,13 @@ const Ad = db.define("ad", {
     type: Sequelize.TEXT
   },
   email: {
-    type: Sequelize.STRING,
+    type: Sequelize.STRING
   },
   phone: {
-      type: Sequelize.STRING
+    type: Sequelize.STRING
   }
 });
+
+Ad.belongsTo(User);
 
 module.exports = Ad;

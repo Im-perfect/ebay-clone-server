@@ -9,6 +9,7 @@ const bodyParserMiddleware = bodyParser.json();
 const corsMiddleware = cors();
 
 const userRouter = require('./user/router')
+const authRouter = require("./auth/router")
 
 const db = require("./db");
 const User = require("./user/model")
@@ -19,6 +20,7 @@ app
   .use(corsMiddleware)
   .use(bodyParserMiddleware)
   .use(userRouter)
+  .use(authRouter)
   .listen(port, () => {
     console.log("listening on " + port);
   });
